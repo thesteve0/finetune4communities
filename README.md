@@ -7,11 +7,11 @@ This guide is for anyone who is AI knowledgeable but not an AI expert. We will s
 For now, we will drive this through examples that are of interest to the author. Over time we hope to bring in a broader array of community focused examples.
 
 Our current possible examples are models tuned for:
-1. OCR-ing my particular handwriting
-2. ADHD assistance with Reachy-mini robot
-3. Blog and abstract writing that actually uses words, style, and tone
-4. House building expert for newbies
-5. Expert in restoration ecology for the southern Santa Lucia Mountains of California.
+1. Blog and abstract writing that actually uses words, style, and tone
+2. OCR-ing my particular handwriting
+3. ADHD assistance with Reachy-mini robot
+4. Expert in restoration ecology for the southern Santa Lucia Mountains of California.
+5. House building expert for newbies
 
 These are used as illustrative examples to give projects different ideas about use cases, model types, and data types.
 
