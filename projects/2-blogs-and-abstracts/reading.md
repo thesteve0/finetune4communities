@@ -48,6 +48,13 @@ are naturally (paper → abstract) pairs, blogs are (topic or outline → post).
 
 ## 4. Evaluation - "does this sound like me?"
 
+The three small judges from [example 1](../1-llm-judges/README.md) are trained to
+evaluate this model's outputs, explaining their ratings and voting across great
+(1), fair (0), and bad (-1). Compare individual and panel ratings with blind human
+review, and keep judge versions fixed when comparing writer experiments. The
+sources below provide background on judge methodology and bias, not a replacement
+for validating our own panel.
+
 There is no CER/WER equivalent for voice. The roadmap starts with human
 evaluations; these make the rest defensible:
 

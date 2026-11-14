@@ -3,11 +3,11 @@
 Compiled 2026-11-11. All URLs verified with curl (HTTP 200) on this date, except
 the six in the last section, which block automated checks.
 
-Aimed at someone who has already done the text-SFT pass of example 1. The root
+Aimed at someone who has already done the text-SFT pass of example 2. The root
 references.md covers the generic toolchain (TRL/PEFT, LoRA, MLflow, the eval
 guidebook, Argilla/distilabel, serving), and the "Do you even need to
 fine-tune?" page is this example's required first stop. The closest sibling is
-projects/4-restoration-ecology/reading.md - same RAG-versus-fine-tuning
+projects/5-restoration-ecology/reading.md - same RAG-versus-fine-tuning
 decision and the same RAG mechanics, different corpus; that list goes deeper on
 the build itself, and this one leans on it rather than repeating everything.
 

@@ -3,7 +3,7 @@
 Compiled 2026-11-11. All URLs verified with curl (HTTP 200) on this date, except
 the three in the last section, which block automated checks.
 
-Aimed at someone who has already done the text-SFT pass of example 1. The root
+Aimed at someone who has already done the text-SFT pass of example 2. The root
 references.md covers the generic toolchain (TRL/PEFT, LoRA, MLflow, the eval
 guidebook, Argilla/distilabel, serving), and the fine-tuning mechanics here are
 the same text stack, so none of that is repeated. This list adds what is

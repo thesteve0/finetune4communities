@@ -7,13 +7,22 @@ This guide is for anyone who is AI knowledgeable but not an AI expert. We will s
 For now, we will drive this through examples that are of interest to the author. Over time we hope to bring in a broader array of community focused examples.
 
 Our current possible examples are models tuned for:
-1. Blog and abstract writing that actually uses words, style, and tone
-2. OCR-ing my particular handwriting
-3. ADHD assistance with Reachy-mini robot
-4. Expert in restoration ecology for the southern Santa Lucia Mountains of California.
-5. House building expert for newbies
+1. LLM judges to evaluate content created by the blog and abstract writing model
+2. Blog and abstract writing that actually uses words, style, and tone
+3. OCR-ing my particular handwriting
+4. ADHD assistance with Reachy-mini robot
+5. Expert in restoration ecology for the southern Santa Lucia Mountains of California.
+6. House building expert for newbies
 
 These are used as illustrative examples to give projects different ideas about use cases, model types, and data types.
+
+## How the first two examples fit together
+
+We start by training three small LLM judges to evaluate content from the blog and abstract writing model. The training data pairs candidate writing with my rating and a narrated explanation of why I like or dislike it. Each judge learns to explain its judgment and give one of three ratings: great (1), fair (0), or bad (-1). Once we have the dataset, the goal is to make these small-model training runs quick and straightforward, then implement voting amongst the judges.
+
+The judges come first in the learning sequence, but they do not depend on a fine-tuned writer already existing. Existing drafts and outputs from untuned models can supply the initial candidates; we start with abstracts and extend to blog posts. The next example trains the writer, and we use the judges to help evaluate its outputs alongside human review. We compare each judge and the voting result against held-out human ratings rather than assuming three judges must be better than one.
+
+The example directories follow this order; see [the staging plan](plan.md) and [the judge example outline](projects/1-llm-judges/README.md).
 
 ## Before you start
 Fine-tuning is not always the answer. These pages cover the decisions worth making before you touch a GPU:
@@ -32,6 +41,7 @@ Fine-tuning is not always the answer. These pages cover the decisions worth maki
 4. How to pick a starting model
 5. Design your evaluation
    - we start with simple human evaluations to get a feel for what the models are actually doing
+   - for the judge example, compare individual judges and their voting result against held-out human ratings
 6. Evaluate the base model
 7. What type of fine-tuning - there is no single best way, it depends on your use case and data
    - unfreezing the last 1-3 layers of the base model

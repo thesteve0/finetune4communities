@@ -4,12 +4,14 @@ Guidance for AI agents working in this repository.
 
 ## What this project is
 
-A guide for creating small fine-tuned models for communities, aimed at people who are AI knowledgeable but not AI experts. It is built example-first: each example (handwriting OCR, ADHD assistance, blog/abstract writing, house building, restoration ecology) will eventually get working datasets and code. Python and PyTorch on Linux only. Open-source frameworks only.
+A guide for creating small fine-tuned models for communities, aimed at people who are AI knowledgeable but not AI experts. It is built example-first: each example (LLM judges, blog/abstract writing, handwriting OCR, ADHD assistance, restoration ecology, house building) will eventually get working datasets and code. Python and PyTorch on Linux only. Open-source frameworks only.
 
 ## Current state
 
 - `README.md` - the roadmap: "Before you start" pages plus 10 steps. Also holds two shortlist tables for pending decisions.
 - `references.md` - annotated links that map onto the roadmap.
+- `plan.md` - staging order and dependencies for the six examples.
+- `projects/1-llm-judges/README.md` - the judge-training outline; projects 2-6 have reading lists. Directory numbers match the learning sequence.
 - `LICENSE`
 - No code yet.
 
@@ -23,6 +25,9 @@ A guide for creating small fine-tuned models for communities, aimed at people wh
 - **MLflow** for experiment tracking, tracing, and evaluations.
 - **Reproducibility:** pinned library versions, pinned dataset snapshots, fixed random seeds.
 - **No notebooks.** The author dislikes them strongly; delivery is plain Python scripts. Final code layout is still undecided.
+- **Judges first, writer second.** Train three small LLM judges to evaluate content created by the blog/abstract writing model. Begin with abstracts, then extend to blog posts. Initial judge data can come from existing drafts and untuned generators; do not make judge training depend on the fine-tuned writer.
+- **Judge supervision:** the author's narrated critiques plus great (1), fair (0), or bad (-1) ratings. Train for an explanation grounded in the candidate text plus a rating, using supervised fine-tuning. Reasoning/explanation capability is part of the exercise; no reinforcement learning is required for this starting point.
+- **Three-judge voting** is part of the first example. Reuse the curated dataset for three small-model training runs; aim for quick, straightforward training once the data exists, but measure cost and runtime rather than promising them. Compare individual judges and the ensemble against held-out human judgments. Shared errors can limit voting gains; human review remains the reference.
 - **Evaluation** starts with simple human evaluations; a proper eval design will be written when that roadmap step is reached.
 
 ## How to work here
@@ -39,7 +44,8 @@ A guide for creating small fine-tuned models for communities, aimed at people wh
 - Which VLM/OCR model(s) to feature for the handwriting example (shortlist in README).
 - The happy-path training framework: TRL/PEFT vs Unsloth vs Axolotl vs LLaMA-Factory (shortlist in README, links also in references.md).
 - Reinforcement learning: DPO vs GRPO-style training - "Reinforcement Learning" stays on the roadmap until this is understood. Background reading: TRL DPO/GRPO docs and rlhfbook.com in references.md.
-- Code delivery layout (per-example folders? uv.lock? configs?).
+- Judge model selection and how to vary the three judges (base models, seeds, or other training choices); voting details, including the all-different case. Do not assume the judges are independent or generalize beyond the writing rubric.
+- Code delivery layout within the numbered example folders (uv.lock? configs?).
 - Pages to be written: "Do you even need to fine-tune?" (prompt engineering vs RAG vs fine-tuning, plus other accuracy levers: few-shot examples, tool use, constrained decoding, inference-time scaling, validators and retry loops, model routing, distillation), "What does small mean?" (size/accuracy/speed/hardware-cost tradeoffs), "Ethics, licensing, and data privacy".
 
 ## Conventions for code when it lands
